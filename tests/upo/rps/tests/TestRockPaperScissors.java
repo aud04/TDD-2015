@@ -44,6 +44,15 @@ public class TestRockPaperScissors {
         };
     }
 
+    @DataProvider(name = "TieData")
+    public Object[][] createTestTieData() {
+        return new Object[][] {
+                { "PAPER", "PAPER"},
+                { "SCISSORS", "SCISSORS"},
+                {"ROCK", "ROCK"},
+        };
+    }
+
    // @Parameters ({ "Paper" ,"Rock" })
     @Test(dataProvider = "WinData" )
     public void testWinPlay(String p1, String p2) throws Exception {
@@ -56,6 +65,13 @@ public class TestRockPaperScissors {
     public void testLostPlay(String p1, String p2) throws Exception {
 
         assertEquals(rps.play(RPSEnum.valueOf(p1), RPSEnum.valueOf(p2)), Result.LOST);
+
+    }
+
+    @Test(dataProvider = "TieData" )
+    public void testTiePlay(String p1, String p2) throws Exception {
+
+        assertEquals(rps.play(RPSEnum.valueOf(p1), RPSEnum.valueOf(p2)), Result.TIE);
 
     }
 }
