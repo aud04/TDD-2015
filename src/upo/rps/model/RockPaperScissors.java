@@ -23,6 +23,11 @@ public final class RockPaperScissors {
     }
 
     public Result play(Player p1, Player p2){
+
+        while(p1.getNextMove()!=null && p2.getNextMove()!=null ){
+
+        }
+
         return Result.LOST;
     }
 }

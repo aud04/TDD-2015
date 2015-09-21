@@ -1,6 +1,7 @@
 package upo.rps.tests;
 
 import org.testng.annotations.*;
+import upo.rps.model.Player;
 import upo.rps.model.RPSEnum;
 import upo.rps.model.Result;
 import upo.rps.model.RockPaperScissors;
@@ -14,6 +15,8 @@ import static org.testng.Assert.*;
 public class TestRockPaperScissors {
 
     private RockPaperScissors rps;
+    private Player j1;
+    private Player j2;
 
     @BeforeClass
     public void setUp() throws Exception {
@@ -21,9 +24,22 @@ public class TestRockPaperScissors {
 
     }
 
+    @BeforeClass
+    public void setUpClasse() throws Exception {
+        j1 = new Player("joueur1");
+        j2 = new Player("joueur2");
+
+    }
+
     @AfterClass
     public void tearDown() throws Exception {
         rps = null;
+    }
+
+    @AfterClass
+    public void tearDownClass() throws Exception {
+        j1 = null;
+        j2 = null;
     }
 
     @DataProvider(name = "WinData")
@@ -74,4 +90,7 @@ public class TestRockPaperScissors {
         assertEquals(rps.play(RPSEnum.valueOf(p1), RPSEnum.valueOf(p2)), Result.TIE);
 
     }
+
+
+
 }

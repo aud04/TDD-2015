@@ -24,7 +24,7 @@ public class Player {
 
     public Player (String nomJoueur){
         this.nomJoueur = nomJoueur;
-        sessionJeu = new ArrayList<RPSEnum>(20);
+        sessionJeu = new ArrayList<RPSEnum>();
         mouv=sessionJeu.iterator();
 
         for (int i=0; i<sessionJeu.size(); i++){
