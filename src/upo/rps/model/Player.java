@@ -11,25 +11,26 @@ import java.util.List;
 public class Player {
 
     private String nomJoueur;
-    private int score = 0;
+    private int score;
     List<RPSEnum> sessionJeu;
     Iterator<RPSEnum> mouv;
 
-    public Player (String nomJoueur, int score,List<RPSEnum> sessionJeu ){
+    public Player (String nomJoueur,List<RPSEnum> sessionJeu ){
         this.nomJoueur = nomJoueur;
-        this.score = score;
+        this.score = 0;
         this.sessionJeu=sessionJeu;
-        mouv=sessionJeu.iterator();
+        this.mouv=sessionJeu.iterator();
+
     }
 
     public Player (String nomJoueur){
         this.nomJoueur = nomJoueur;
         sessionJeu = new ArrayList<RPSEnum>();
-        mouv=sessionJeu.iterator();
 
-        for (int i=0; i<sessionJeu.size(); i++){
+
+        for (int i=0; i<10; i++){ // ajoute des coups
             int lower = 0;
-            int higher = 2;
+            int higher = 3; //sinon il n'y a pas de scissors
 
             int random = (int)(Math.random() * (higher-lower)) + lower;
            switch (random){
@@ -43,6 +44,7 @@ public class Player {
 
            }
         }
+        this.mouv=sessionJeu.iterator(); //iterator de la liste
     }
 
     public String getNomJoueur() {
@@ -56,6 +58,8 @@ public class Player {
     public void setScore(int score) {
         this.score = score;
     }
+
+
 
     public int getNbMouvement(){
         return this.sessionJeu.size();

@@ -10,7 +10,7 @@ import static org.testng.Assert.*;
 
 /**
  * Created by austepha on 14/09/2015.
- * Test {@Link testRockPaperScissor}
+ * Test { testRockPaperScissor}
  */
 public class TestRockPaperScissors {
 
@@ -24,23 +24,14 @@ public class TestRockPaperScissors {
 
     }
 
-    @BeforeClass
-    public void setUpClasse() throws Exception {
-        j1 = new Player("joueur1");
-        j2 = new Player("joueur2");
 
-    }
 
     @AfterClass
     public void tearDown() throws Exception {
         rps = null;
     }
 
-    @AfterClass
-    public void tearDownClass() throws Exception {
-        j1 = null;
-        j2 = null;
-    }
+
 
     @DataProvider(name = "WinData")
     public Object[][] createTestWinData() {
